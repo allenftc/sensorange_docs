@@ -11,6 +11,13 @@ The [sensOrange Encoder](https://sensorangerobotics.com/product/encoder) is a ve
 - Absolute Analog and Relative Quadrature output
 - Differential Hall sensing for stray magnetic field immunity
 - 100HZ update rate to reduce noise and match REV Control Hub polling rate
+
+## CAD and Drawings
+[CAD Link (Onshape)↗](https://cad.onshape.com/documents/17b4dcf69571843c27329307/w/e1b88a356c959f37899eb8e6/e/c158a022034ba6101b0b01ff){target=blank}
+<br>
+[Dimension Drawing (pdf)](../assets/encoderdrawing.pdf){:download}
+
+
  
 
 ## Analog Usage
