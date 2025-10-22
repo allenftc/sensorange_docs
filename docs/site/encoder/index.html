@@ -359,6 +359,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -438,6 +453,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -496,21 +526,27 @@
 <li>Absolute Analog and Relative Quadrature output</li>
 <li>Differential Hall sensing for stray magnetic field immunity</li>
 <li>100HZ update rate to reduce noise and match REV Control Hub polling rate</li>
+<li>TVS diode for ESD protection</li>
+</ul>
+<h3 id="note">Note</h3>
+<ul>
+<li>This encoder is designed for use on an already supported shaft. Please do not put excessive loads on it, especially axial loads.</li>
 </ul>
 <h2 id="cad-and-drawings">CAD and Drawings</h2>
 <p><a href="https://cad.onshape.com/documents/17b4dcf69571843c27329307/w/e1b88a356c959f37899eb8e6/e/c158a022034ba6101b0b01ff" target="blank">CAD Link (Onshape)↗</a>
 <br>
 <a download="download" href="../assets/encoderdrawing.pdf">Dimension Drawing (pdf)</a></p>
 <h2 id="analog-usage">Analog Usage</h2>
-<p>The analog output of the encoder scales the voltage from 0.05V to 3.19V to mitigate the effects of variation in the digital-to-analog converter. To measure angle accurately in code, please reference the code below. 
+<p>The analog output of the encoder scales the voltage nominally from 0.043V to 3.1V as specced by the chip. To measure angle accurately in code, please reference the code below. 
 <div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//Initialization Code</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">AnalogInput</span><span class="w"> </span><span class="n">encoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hardwareMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">AnalogInput</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;encoder&quot;</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">//Run in Loop</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">encoder</span><span class="p">.</span><span class="na">getVoltage</span><span class="p">()</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span><span class="o">/</span><span class="mf">3.142</span><span class="o">*</span><span class="mi">360</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">//Run in Loop</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AngleUnit</span><span class="p">.</span><span class="na">normalizeDegrees</span><span class="p">((</span><span class="n">encoder</span><span class="p">.</span><span class="na">getVoltage</span><span class="p">()</span><span class="o">-</span><span class="mf">0.043</span><span class="p">)</span><span class="o">/</span><span class="mf">3.1</span><span class="o">*</span><span class="mi">360</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
 </span></code></pre></div></p>
 <h2 id="quadrature-usage">Quadrature Usage</h2>
-<p>Coming soon...</p>
+<p>NO</p>
 
 
 
