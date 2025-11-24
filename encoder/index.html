@@ -571,7 +571,7 @@
 </ul>
 <h2 id="features">Features</h2>
 <ul>
-<li>Absolute Analog and Relative Quadrature output</li>
+<li>Absolute Analog output</li>
 <li>Differential Hall sensing for stray magnetic field immunity</li>
 <li>100HZ update rate to reduce noise and match REV Control Hub polling rate</li>
 <li>TVS diode for ESD protection</li>
@@ -585,7 +585,7 @@
 <br>
 <a download="drawing" href="../assets/encoderdrawing.pdf">Dimension Drawing (pdf)</a></p>
 <h2 id="analog-usage">Analog Usage</h2>
-<p>To use the encoder, configure it as an Analog Input device in the hardware map. Each analog port has two channels, and the encoder outputs on both of them (for example, plugging into the first port would give a reading on both port 0 and port 1). The analog output of the encoder scales the voltage nominally from 0.043V to 3.1V as specced by the chip. To measure angle accurately in code, please reference the code below. 
+<p>To use the encoder, configure it as an Analog Input device in the hardware map. Each analog port has two channels, and the encoder outputs on both of them (for example, plugging into the first port would give a reading on both port 0 and port 1). The analog output of the encoder scales the voltage nominally from 0.043V to 3.1V to increase reliablity. To measure angle accurately in code, please reference the code below. 
 <div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//Initialization Code</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">AnalogInput</span><span class="w"> </span><span class="n">encoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hardwareMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">AnalogInput</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;encoder&quot;</span><span class="p">);</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
